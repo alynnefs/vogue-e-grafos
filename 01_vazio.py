@@ -16,6 +16,6 @@ nx.draw_networkx(
     arrowstyle="->",
     min_source_margin=15,
     min_target_margin=15,
-    with_labels=True
+    with_labels=True,
 )
 plt.show()

@@ -41,7 +41,7 @@ nx.draw_networkx(
     min_source_margin=15,
     min_target_margin=15,
     with_labels=True,
-    node_size=2500
+    node_size=2500,
 )
 
 # Transformação de coordenadas de dados (escaladas entre xlim e ylim) para coordenadas de visualização

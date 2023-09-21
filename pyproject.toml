@@ -14,6 +14,7 @@ pydot = "^1.4.2"
 automata = "^0.1.4"
 automata-lib = "^8.0.0"
 visual-automata = "^1.1.1"
+black = "^23.9.1"
 
 
 [build-system]

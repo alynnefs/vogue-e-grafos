@@ -11,7 +11,7 @@ G.add_edge(2, 3)
 
 # Vértice sem aresta
 G.add_node(4)
-#G.add_edge(4, 5)
+# G.add_edge(4, 5)
 
 
 # Cria o layout e desenha o grafo
@@ -26,7 +26,7 @@ nx.draw_networkx(
     arrowstyle="-",
     min_source_margin=15,
     min_target_margin=15,
-    with_labels=True
+    with_labels=True,
 )
 
 plt.show()
