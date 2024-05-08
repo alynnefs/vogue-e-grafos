@@ -9,12 +9,12 @@ dfa = VisualDFA(
         "q2": {"A": "q0", "B": "q1"},
     },
     initial_state="q0",
-    final_states={"q1", "q2"},
+    final_states={"q2"},
 )
 
 dfa.show_diagram(view=True)
 
-print(dfa.input_check("AAA"))
-# print(dfa.input_check("ABA"))
-# print(dfa.input_check("AA"))
-# print(dfa.input_check("ABBAAA"))
+#print(dfa.input_check("AAA"))
+#print(dfa.input_check("ABA"))
+print(dfa.input_check("AA"))
+#print(dfa.input_check("ABBAABBBA"))

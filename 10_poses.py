@@ -8,19 +8,19 @@ poses = {
     "3": "3.jpeg",
 }
 
-# Carrega imagens
+# Load images
 images = {k: PIL.Image.open(fname) for k, fname in poses.items()}
 
 
-# Cria o grafo
+# Creates the graph
 G = nx.Graph()
 
-# Adiciona as fotos nos nós
+# Add photos to nodes
 G.add_node(1, image=images["1"])
 G.add_node(2, image=images["2"])
 G.add_node(3, image=images["3"])
 
-# Cria as arestas
+# Creates the edges
 G.add_edge(1, 2)
 G.add_edge(1, 3)
 G.add_edge(3, 1)
@@ -28,11 +28,11 @@ G.add_edge(2, 3)
 G.add_edge(2, 2)
 
 
-# Cria o layout e desenha o grafo
+# Creates the layout and draws the graph
 pos = nx.spring_layout(G)
 fig, ax = plt.subplots()
 
-# Características das arestas
+# Edge characteristics
 nx.draw_networkx(
     G,
     pos=pos,
@@ -44,20 +44,20 @@ nx.draw_networkx(
     node_size=2500,
 )
 
-# Transformação de coordenadas de dados (escaladas entre xlim e ylim) para coordenadas de visualização
+# Transformation of data coordinates (scaled between xlim and ylim) to visualization coordinates
 tr_figure = ax.transData.transform
-# Transformar a visualização em coordenadas de figuras
+# Transform visualization into figure coordinates
 tr_axes = fig.transFigure.inverted().transform
 
-# Selecionar o tamanho da imagem (relativamente ao eixo X)
+# Select the image size (relative to the X axis)
 icon_size = (ax.get_xlim()[1] - ax.get_xlim()[0]) * 0.025
 icon_center = icon_size / 2.0
 
-# Adicionar a respectiva imagem a cada nó
+# Add the respective image to each node
 for n in G.nodes:
     xf, yf = tr_figure(pos[n])
     xa, ya = tr_axes((xf, yf))
-    # obter eixos sobrepostos e ícone do gráfico
+    # get overlapping axes and graph icon
     a = plt.axes([xa - icon_center, ya - icon_center, icon_size, icon_size])
     a.imshow(G.nodes[n]["image"])
     a.axis("off")

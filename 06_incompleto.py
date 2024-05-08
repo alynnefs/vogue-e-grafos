@@ -1,21 +1,21 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 
-# Cria o grafo
+# Creates the graph
 G = nx.Graph()
 
-# Cria as arestas
+# Creates the edges
 G.add_edge(1, 2)
 G.add_edge(1, 3)
 G.add_edge(1, 4)
 G.add_edge(2, 3)
 G.add_edge(2, 4)
 
-# Cria o layout e desenha o grafo
+# Creates the layout and draws the graph
 pos = nx.spring_layout(G)
 fig, ax = plt.subplots()
 
-# Características das arestas
+# Edge characteristics
 nx.draw_networkx(
     G,
     pos=pos,
